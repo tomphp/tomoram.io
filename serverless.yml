@@ -2,7 +2,7 @@ service: tomoram-io
 
 plugins:
   - serverless-s3-sync
-  - serverless-webpack
+  - serverless-plugin-scripts
 
 custom:
   siteName: tomoram.io
@@ -12,6 +12,9 @@ custom:
   hostedZoneName: tomoram.io
   aliasHostedZoneId: Z3GKZC51ZF0DB4
   aliasDNSName: s3-website.eu-west-2.amazonaws.com
+  scripts:
+    hooks:
+      'before:deploy:createDeploymentArtifacts': npm run compile-frontend
 
 provider:
   name: aws
