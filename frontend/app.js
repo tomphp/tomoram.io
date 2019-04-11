@@ -1,5 +1,9 @@
 'use strict'
 
-const content = document.querySelector('#content');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-content.innerText = 'Content activated!';
+import HelloWorld from './components/hello-world';
+
+const wrapper = document.getElementById('content');
+wrapper ? ReactDOM.render(<HelloWorld name="World" />, wrapper) : false;
