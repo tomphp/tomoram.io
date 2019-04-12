@@ -21,6 +21,14 @@ provider:
   region: eu-west-2
   runtime: nodejs8.10
 
+functions:
+  hello:
+    handler: src/hello.handler
+    events:
+      - http:
+          path: hello
+          method: get
+
 resources:
   Resources:
     StaticSite:
