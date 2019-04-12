@@ -6,4 +6,4 @@ jspm_packages
 .serverless
 
 # Generated frontend app
-static/app.js
+dist/

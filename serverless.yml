@@ -8,7 +8,7 @@ custom:
   siteName: tomoram.io
   s3Sync:
     - bucketName: ${self:custom.siteName}
-      localDir: static
+      localDir: dist
   hostedZoneName: tomoram.io
   aliasHostedZoneId: Z3GKZC51ZF0DB4
   aliasDNSName: s3-website.eu-west-2.amazonaws.com

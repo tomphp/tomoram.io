@@ -1,5 +1,7 @@
 'use strict'
 
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = {
   entry: './frontend/app.js',
   target: 'web',
@@ -14,8 +16,13 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: 'static' }
+    ])
+  ],
   output: {
-    path: __dirname + '/static',
+    path: __dirname + '/dist',
     filename: 'app.js'
   }
 };
