@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -11,18 +11,18 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
-      }
-    ]
+          loader: 'babel-loader',
+        },
+      },
+    ],
   },
   plugins: [
     new CopyWebpackPlugin([
-      { from: 'static' }
-    ])
+      {from: 'static'},
+    ]),
   ],
   output: {
     path: __dirname + '/dist',
-    filename: 'app.js'
-  }
+    filename: 'app.js',
+  },
 };

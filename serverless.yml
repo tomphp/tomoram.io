@@ -15,7 +15,7 @@ custom:
   aliasDNSName: s3-website.eu-west-2.amazonaws.com
   scripts:
     hooks:
-      'before:deploy:createDeploymentArtifacts': npm run compile-frontend
+      'before:deploy:createDeploymentArtifacts': npm run compile
   webpack:
     webpackConfig: backend.webpack.config.js
     includeModules: true

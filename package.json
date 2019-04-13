@@ -4,7 +4,10 @@
   "version": "0.1.0",
   "scripts": {
     "test": "jest",
-    "compile-frontend": "webpack --config frontend.webpack.config.js"
+    "pretest": "npm run eslint",
+    "eslint": "eslint .",
+    "precompile": "npm run test",
+    "compile": "webpack --config frontend.webpack.config.js"
   },
   "dependencies": {},
   "devDependencies": {
@@ -13,6 +16,11 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "copy-webpack-plugin": "^5.0.2",
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.12.0",
+    "eslint-plugin-import": "^2.17.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "jest": "^24.7.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 export function handler(event) {
   return new Promise((resolve, reject) => {
