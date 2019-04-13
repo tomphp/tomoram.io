@@ -7,3 +7,4 @@ jspm_packages
 
 # Generated frontend app
 dist/
+.webpack/

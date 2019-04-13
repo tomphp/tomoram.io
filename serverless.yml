@@ -1,8 +1,9 @@
 service: tomoram-io
 
 plugins:
-  - serverless-s3-sync
   - serverless-plugin-scripts
+  - serverless-s3-sync
+  - serverless-webpack
 
 custom:
   siteName: tomoram.io
@@ -15,6 +16,9 @@ custom:
   scripts:
     hooks:
       'before:deploy:createDeploymentArtifacts': npm run compile-frontend
+  webpack:
+    webpackConfig: backend.webpack.config.js
+    includeModules: true
 
 provider:
   name: aws
