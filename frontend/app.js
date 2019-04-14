@@ -1,9 +1,19 @@
 'use strict';
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 
-import HelloWorld from './components/hello-world';
+import {createStore} from 'redux';
+import app from './reducers/app';
+import {Provider} from 'react-redux';
+import App from './components/App';
+
+const store = createStore(app);
 
 const wrapper = document.getElementById('content');
-wrapper ? ReactDOM.render(<HelloWorld name="World" />, wrapper) : false;
+render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    wrapper
+);
