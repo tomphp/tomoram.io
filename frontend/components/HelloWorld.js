@@ -3,19 +3,27 @@
 import React from 'react';
 
 export default class HelloWorld extends React.Component {
+  static defaultProps = {
+    salutation: 'Hello',
+    subject: null,
+  };
+
   render() {
     return (
       <div className="hello-world">
-        {this.props.salutation} {this.subject()}
+        <span className="salutation">{this.props.salutation}</span>
+        {this.subject()}
       </div>
     );
   }
 
   subject() {
     if (this.props.subject === null) {
-      return <button onClick={() => this.props.updateSubject()}>who?</button>;
+      return <button
+        className="get-subject"
+        onClick={() => this.props.updateSubject()}>who?</button>;
     }
 
-    return <span>{this.props.subject}</span>;
+    return <span className="subject">{this.props.subject}</span>;
   }
 }
