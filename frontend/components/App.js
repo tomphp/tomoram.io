@@ -1,11 +1,11 @@
 'use strict';
 
 import React from 'react';
-import HelloContainer from '../containers/hello';
+import HelloContainer from '../containers/HelloContainer';
 
 const App = () => (
   <div>
-    <HelloContainer />
+    <HelloContainer salutation="Hello"/>
   </div>
 );
 

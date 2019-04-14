@@ -1,5 +1,5 @@
 import {handler} from './hello';
 
-test('someting', async () => {
-  expect(await handler(null)).toEqual({value: 'world'});
+test('handler returns subject of world', async () => {
+  expect(await handler(null)).toEqual({subject: 'world'});
 });
