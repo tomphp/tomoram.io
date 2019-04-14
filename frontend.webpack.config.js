@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: './frontend/app.js',
   target: 'web',
+  devtool: 'source-map',
   module: {
     rules: [
       {
