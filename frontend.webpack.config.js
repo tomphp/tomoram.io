@@ -1,6 +1,6 @@
 'use strict';
 
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './frontend/app.js',
@@ -18,9 +18,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new CopyWebpackPlugin([
-      {from: 'static'},
-    ]),
+    new HtmlWebpackPlugin({
+      title: 'tomoram.io',
+      template: './frontend/index.hbs',
+    }),
   ],
   output: {
     path: __dirname + '/dist',
