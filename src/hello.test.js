@@ -1,12 +1,24 @@
 import {handler} from './hello';
 
-test('handler returns subject of world', async () => {
-  const response = await handler(null);
+describe('hello.handler', () => {
+  describe('the response', () => {
+    let response;
 
-  expect(response.statusCode).toEqual(200);
-  expect(JSON.parse(response.body)).toEqual({subject: 'world'});
-  expect(response.headers).toEqual({
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
+    beforeAll(async () => {
+      response = await handler(null);
+    });
+
+    it('returns a 200 status code', async () => {
+      expect(response.statusCode).toEqual(200);
+    });
+
+    it('returns the JSON body', () => {
+      expect(response.headers['Content-Type']).toBe('application/json');
+      expect(JSON.parse(response.body)).toEqual({subject: 'world'});
+    });
+
+    it('allows all CORS origins', () => {
+      expect(response.headers['Access-Control-Allow-Origin']).toBe('*');
+    });
   });
 });
