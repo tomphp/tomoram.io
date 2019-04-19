@@ -43,6 +43,13 @@ test('subject', () => {
   expect(button.exists()).toBe(false);
 });
 
+test('formatting', () => {
+  const component = Enzyme.shallow(<HelloWorld salutation="Hi"
+                                               subject='friend'/>);
+
+  expect(component.text()).toBe('Hi friend');
+});
+
 test('setSubject', (done) => {
   const component = Enzyme.shallow(<HelloWorld updateSubject={done}/>);
 

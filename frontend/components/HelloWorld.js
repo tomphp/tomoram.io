@@ -11,8 +11,8 @@ export default class HelloWorld extends React.Component {
   render() {
     return (
       <div className="hello-world">
-        <span className="salutation">{this.props.salutation}</span>
-        {this.subject()}
+        <span
+          className="salutation">{this.props.salutation}</span> {this.subject()}
       </div>
     );
   }
