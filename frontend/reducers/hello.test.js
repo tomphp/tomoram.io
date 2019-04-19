@@ -1,7 +1,7 @@
 'use strict';
 
 import {hello} from './hello';
-import {setSubject} from '../actions/hello';
+import {SET_SUBJECT} from '../actions/hello';
 
 const UNKNOWN_ACTION = {type: 'unknown action'};
 
@@ -14,5 +14,6 @@ test('hello defaults to not altering the state', () => {
 });
 
 test('hello updates the state on a SET_SUBJECT action', () => {
-  expect(hello(null, setSubject('people'))).toBe('people');
+  expect(hello(null, {type: SET_SUBJECT, subject: 'people'}))
+      .toBe('people');
 });

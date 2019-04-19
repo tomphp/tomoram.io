@@ -7,6 +7,7 @@ plugins:
 
 custom:
   siteName: tomoram.io
+  apiUrl: https://whskz18e6h.execute-api.eu-west-2.amazonaws.com/dev
   s3Sync:
     - bucketName: ${self:custom.siteName}
       localDir: dist
@@ -15,7 +16,7 @@ custom:
   aliasDNSName: s3-website.eu-west-2.amazonaws.com
   scripts:
     hooks:
-      'before:deploy:createDeploymentArtifacts': npm run compile
+      'before:deploy:createDeploymentArtifacts': npm run compile -- --env.API_URL=${self:custom.apiUrl}
   webpack:
     webpackConfig: backend.webpack.config.js
     includeModules: true
@@ -32,6 +33,16 @@ functions:
       - http:
           path: hello
           method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
 
 resources:
   Resources:

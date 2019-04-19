@@ -1,8 +1,9 @@
 'use strict';
 
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+module.exports = (env) => ({
   entry: './frontend/app.js',
   target: 'web',
   devtool: 'source-map',
@@ -20,11 +21,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'tomoram.io',
-      template: './frontend/index.hbs',
+    }),
+    new webpack.DefinePlugin({
+      API_URL: JSON.stringify(env.API_URL),
     }),
   ],
   output: {
     path: __dirname + '/dist',
     filename: 'app.js',
   },
-};
+});

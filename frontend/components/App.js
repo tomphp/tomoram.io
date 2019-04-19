@@ -3,9 +3,9 @@
 import React from 'react';
 import HelloContainer from '../containers/HelloContainer';
 
-const App = () => (
+const App = (apiUrl) => (
   <div>
-    <HelloContainer salutation="Hello"/>
+    <HelloContainer apiUrl={apiUrl} salutation="Hello"/>
   </div>
 );
 

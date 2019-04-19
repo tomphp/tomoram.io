@@ -11,7 +11,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch, ownProps) {
   return {
     updateSubject: () => {
-      dispatch(setSubject('world'));
+      dispatch(setSubject(ownProps.apiUrl.apiUrl));
     },
   };
 }
