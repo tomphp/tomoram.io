@@ -1,6 +1,7 @@
 'use strict';
 
 import 'babel-polyfill'; // for cross-fetch
+import 'cross-fetch/polyfill';
 
 import React from 'react';
 import thunkMiddleware from 'redux-thunk';

@@ -1,7 +1,5 @@
 'use strict';
 
-import fetch from 'cross-fetch';
-
 export const SET_SUBJECT = 'SET_SUBJECT';
 
 export function setSubject(apiUrl) {
