@@ -45,7 +45,7 @@ test('subject', () => {
 
 test('formatting', () => {
   const component = Enzyme.shallow(<HelloWorld salutation="Hi"
-                                               subject='friend'/>);
+    subject='friend'/>);
 
   expect(component.text()).toBe('Hi friend');
 });

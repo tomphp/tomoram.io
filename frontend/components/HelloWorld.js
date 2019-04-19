@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default class HelloWorld extends React.Component {
+export default class HelloWorld extends React.PureComponent {
   static defaultProps = {
     salutation: 'Hello',
     subject: null,
