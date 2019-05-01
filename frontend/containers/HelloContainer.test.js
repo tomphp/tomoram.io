@@ -1,12 +1,13 @@
 'use strict';
 
-jest.mock('../components/HelloWorld');
-
+import {createMockStore} from 'redux-test-utils';
+import {shallowWithStore} from 'enzyme-redux';
 import {mount} from 'enzyme';
 import React from 'react';
 import {Provider} from 'react-redux';
 import HelloContainer from './HelloContainer';
 import HelloWorld from '../components/HelloWorld';
+import {SET_SUBJECT} from '../actions/hello';
 
 const storeFake = (state) => {
   return {
@@ -45,19 +46,32 @@ describe('<HelloContainer/>', () => {
   // https://medium.com/@linmic/writing-tests-for-react-redux-containers-5d01083ecfc4
   // https://medium.com/@visualskyrim/test-your-redux-container-with-enzyme-a0e10c0574ec
 
-  // it('should map state to props', () => {
-  //   const expectedPropKeys = [
-  //     'subject',
-  //     'updateSubject',
-  //     'salutation',
-  //   ];
-  //
-  //   expect(component.props()).toEqual(expect.arrayContaining(expectedPropKeys));
-  // });
+  it('should map state to props', () => {
+    const expectedProps = {
+      subject: null,
+      salutation: 'Hello',
+    };
 
-  // it('should map dispatch to props', () => {
-  //   const expectedPropKeys = ['load'];
-  //
-  //   expect(Object.keys(component.props())).toEqual(expect.arrayContaining(expectedPropKeys));
-  // });
+    expect(component.props()).toEqual(expect.objectContaining(expectedProps));
+  });
+
+  it('should map the dispatch to the props', (done) => {
+    const store = createMockStore();
+    const component = shallowWithStore(<HelloContainer/>, store);
+
+    const button = component.dive().find('.get-subject');
+
+    button.simulate('click');
+
+    // Testing a thunked action this way feels wrong
+    fetch.mockResponse(JSON.stringify({subject: 'moon'}));
+    const actions = store.getActions();
+    const action = actions[0];
+    action((payload) => {
+      expect(payload).toEqual({type: SET_SUBJECT, subject: 'moon'});
+      done();
+    });
+
+    // expect(store.isActionDispatched({})).toBe(true);
+  });
 });
