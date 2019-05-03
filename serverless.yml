@@ -20,6 +20,7 @@ custom:
   webpack:
     webpackConfig: backend.webpack.config.js
     includeModules: true
+  mediumUsername: tom.oram
 
 provider:
   name: aws
@@ -43,6 +44,25 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: false
+
+  medium_posts:
+    handler: src/medium/main.handler
+    events:
+      - http:
+          path: medium
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
+    environment:
+      MEDIUM_USERNAME: ${self:custom.mediumUsername}
 
 resources:
   Resources:
