@@ -7,7 +7,7 @@ plugins:
 
 custom:
   siteName: tomoram.io
-  apiUrl: https://whskz18e6h.execute-api.eu-west-2.amazonaws.com/dev
+  apiUrl: https://hts46waami.execute-api.eu-west-2.amazonaws.com/dev
   s3Sync:
     - bucketName: ${self:custom.siteName}
       localDir: dist
