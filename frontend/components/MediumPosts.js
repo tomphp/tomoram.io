@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import MediumLogo from '../images/medium.png';
 
 class MediumPost extends React.PureComponent {
   static defaultProps = {
@@ -38,7 +39,9 @@ export default class MediumPosts extends React.PureComponent {
 
   render() {
     return <div className="medium-posts">
-      <h2 className="medium-posts__title">Medium Posts</h2>
+      <h2 className="medium-posts__title">
+        <img src={MediumLogo} alt="Medium Posts"/>
+      </h2>
       <ul className="medium-posts__post-list">
         {this.props.posts.map(renderPostItem)}
       </ul>

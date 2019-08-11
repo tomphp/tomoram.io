@@ -7,4 +7,8 @@ module.exports = {
     '<rootDir>/fetch.config.js',
   ],
   verbose: false,
+  moduleNameMapper: {
+    '\\.(css|scss)$': '<rootDir>/__mocks__/styleMock.js',
+    '\\.(png|gif|ttf|eot|svg)$': '<rootDir>/__mocks__/fileMock.js',
+  },
 };

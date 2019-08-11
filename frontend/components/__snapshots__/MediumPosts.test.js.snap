@@ -13,11 +13,25 @@ initialize {
         },
         "children": Array [
           Object {
-            "data": "Medium Posts",
+            "attribs": Object {
+              "alt": "Medium Posts",
+              "src": "test-file-stub",
+            },
+            "children": Array [],
+            "name": "img",
+            "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,
             "parent": [Circular],
             "prev": null,
-            "type": "text",
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "alt": undefined,
+              "src": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "alt": undefined,
+              "src": undefined,
+            },
           },
         ],
         "name": "h2",
@@ -65,11 +79,25 @@ initialize {
           },
           "children": Array [
             Object {
-              "data": "Medium Posts",
+              "attribs": Object {
+                "alt": "Medium Posts",
+                "src": "test-file-stub",
+              },
+              "children": Array [],
+              "name": "img",
+              "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
               "prev": null,
-              "type": "text",
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "alt": undefined,
+                "src": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "alt": undefined,
+                "src": undefined,
+              },
             },
           ],
           "name": "h2",

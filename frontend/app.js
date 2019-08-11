@@ -3,6 +3,8 @@
 import 'babel-polyfill'; // for cross-fetch
 import 'cross-fetch/polyfill';
 
+require('./style/main.scss');
+
 import React from 'react';
 import thunkMiddleware from 'redux-thunk';
 import {render} from 'react-dom';
