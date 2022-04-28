@@ -10,7 +10,7 @@
     "compile": "webpack --config frontend.webpack.config.js"
   },
   "dependencies": {
-    "cross-fetch": "^3.0.2"
+    "cross-fetch": "^3.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
